@@ -1,0 +1,47 @@
+﻿@model CoreLoanManagement.WebSite.Models.CustomerFormCollectionViewModel
+@{
+    ViewBag.Title = "Add Customer Form collection";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Customer information.</p>
+
+<div class="container">    
+    @using (Html.BeginForm(actionName: "AddCustomerFormCollection", controllerName: "Customer", method: FormMethod.Post))
+    {
+        
+        <div class="row">
+            <div class="col-lg-2">
+                <label>Full Name</label>
+            </div>
+            <div class="col-lg-2">
+                <input id="fullName" name="fullName" value="@Model.FullName"/>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <input type="submit" value="Submit Form" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                @Model.Message
+            </div>
+        </div>
+
+    }
+    <p></p>
+    <div class="row">
+        <div class="col">
+            <button id="btnSave">Save Customer Ajax</button>
+        </div>
+    </div>
+</div>
+
+    @section Scripts
+    {
+        <script src="~/Scripts/Customer/Customer.js"></script>
+
+    }

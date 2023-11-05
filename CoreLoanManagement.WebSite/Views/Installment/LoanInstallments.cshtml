@@ -1,0 +1,63 @@
+﻿@model CoreLoanManagement.WebSite.Models.InstallmentViewModel
+@{
+    ViewBag.Title = "INSTALLMENTS";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>All customers</p>
+
+<div class="container">
+    @if (Model.InstallmentList != null && Model.InstallmentList.Count > 0)
+    {
+        <div class="row bg-primary">
+
+            <div class="col-md-2">
+                Installment Id
+            </div>
+            <div class="col-md-2">
+                Customer Name
+            </div>
+            <div class="col-md-2">
+                Loan Description
+            </div>
+            <div class="col-md-2">
+                Installment Value
+            </div>
+        </div>
+
+        foreach (CoreLoanManagement.WebSite.Models.Installment installment in Model.InstallmentList)
+        {
+            <div class="row">
+                <div class="col-md-2">
+                    @installment.InstallmentId
+                </div>
+                <div class="col-md-2">
+                    @installment.CustomerName
+                </div>
+                <div class="col-md-2">
+                    @installment.LoanDescription
+                </div>
+                <div class="col-md-2">
+                    @installment.InstallmentValue.ToString("C3")
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row bg-primary">
+
+            <div class="col">
+                No installments to show
+            </div>           
+        </div>
+    }
+</div>
+<div>
+    @Html.ActionLink(linkText:"Next Page", 
+    actionName:"LoanInstallments", 
+    controllerName:"Installment", 
+    routeValues:new { LastPageLastItemId = Model.InstallmentList[Model.InstallmentList.Count-1].InstallmentId },
+    htmlAttributes: null)
+</div>

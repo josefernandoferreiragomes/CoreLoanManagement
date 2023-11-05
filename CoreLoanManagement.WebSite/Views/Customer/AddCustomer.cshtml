@@ -1,0 +1,88 @@
+﻿@model CoreLoanManagement.WebSite.Models.AddCustomerViewmodel
+@{
+    ViewBag.Title = "Add Customer";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Customer information.</p>
+
+<div class="container">
+    @using (Html.BeginForm(actionName: "AddCustomer", controllerName: "Customer", method: FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-lg-2">
+                @Html.LabelFor(m => m.customer.CustomerName)
+            </div>
+            <div class="col-lg-2">
+                @Html.TextBoxFor(m => m.customer.CustomerName, "", new { id = "CustomerName" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                @Html.ValidationMessageFor(m => m.customer.CustomerName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                @Html.LabelFor(m => m.customer.CustomerTypeId)
+            </div>
+            <div class="col-lg-2">
+                @Html.DropDownListFor(m => m.customer.CustomerTypeId, Model.selecLoanItems, "Select Customer Type", new { id = "CustomerTypeId" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                @Html.ValidationMessageFor(m => m.customer.CustomerTypeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                @Html.LabelFor(m => m.customer.Email)
+            </div>
+            <div class="col-lg-2">
+                @Html.TextBoxFor(m => m.customer.Email, new { id = "CustomerEmail" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                @Html.ValidationMessageFor(m => m.customer.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                @Html.LabelFor(m => m.customer.DateOfBirth, new { @class = "form-text" })
+            </div>
+            <div class="col-lg-2">
+                @Html.TextBoxFor(m => m.customer.DateOfBirth, "", new { @class = "datepicker  form-control", @id = "CustomerDateOfBirth" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="submit" value="Submit Form" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                @Model.Message
+            </div>
+        </div>
+
+    }
+    <p></p>
+    <div class="row">
+        <div class="col">
+            <button id="btnSave">Save Customer Ajax</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script src="~/bundles/jqueryui"></script>
+    <style src="~/Content/cssjqryUi"></style>
+    @*@Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")*@
+    <script src="~/Scripts/Customer/Customer.js"></script>
+
+}

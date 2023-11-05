@@ -1,0 +1,62 @@
+﻿@model CoreLoanManagement.WebSite.Models.SimulateLoanViewModel
+@{
+    ViewBag.Title = "Simulate Loan Page";
+}
+
+<div class="jumbotron">
+    <h1>Simulate Loan</h1>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Add loan details</h2>
+    </div>
+</div>
+
+@using (Html.BeginForm("", ""))
+{
+<div class="input-group mb-3">
+    <div class="input-group">
+        <div class="mb-1">
+            @Html.LabelFor(m => m.LoanAmount, new { @id = "LoanAmountLabel", @class = "form-label" })
+        </div>
+        <div class="mb-1">
+            @Html.TextBoxFor(m => m.LoanAmount, new { @id = "LoanAmountTextBox", @class = "form-control" })
+        </div>
+    </div>
+    <p></p>
+    <div class="input-group">
+        <div class="mb-3">
+            @Html.LabelFor(m => m.LoanInterestRate, new { @id = "LoanInterestRateLabel", @class = "form-label" })
+        </div>
+        <div class="mb-3">
+            @Html.TextBoxFor(m => m.LoanInterestRate, new { @id = "LoanInterestRateTextBox", @class = "form-control" })
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="mb-3">
+            @Html.LabelFor(m => m.LoanInstallment, new { @id = "LoanInstallmentLabel", @class = "form-label" })
+        </div>
+        <div class="mb-3">
+            @Html.TextBoxFor(m => m.LoanInstallment, new { @id = "LoanInstallmentTextBox", @class = "form-control" })
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="mb-3">
+            @Html.LabelFor(m => m.LoanDuration, new { @id = "LoanDurationLabel", @class = "form-label" })
+        </div>
+        <div class="mb-3">
+            @Html.TextBoxFor(m => m.LoanDuration, new { @id = "LoanDurationTextBox", @class = "form-control" })
+        </div>
+    </div>
+</div>
+
+}
+
+@section Scripts
+    {
+   
+    <script src="~/Scripts/SimulateLoan/SimulateLoan.js"></script>
+
+}

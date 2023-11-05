@@ -1,0 +1,158 @@
+Initial Configuration:
+	Populate database
+			LoanManagement.DB.Dao.LoanManagementDBContext LoanManagement.DB.Tests->LoanManagementTest.cs->TestDbContextDbSeed
+			LoanManagementDB->Publish
+			LoanManagementDB->LoanManagementDB->scripts->PopulateDatabase.sql
+
+Start applications
+	solution->configure startup projects
+	web > start without debugging
+	website > start
+
+To See API definition
+	in ASP.NEt api homepage -> click API
+	in swagger, browse to http://localhost:51852/swagger/
+		to get api definition, copy text texbox on top with http://localhost:51852/swagger/docs/v1
+			example request http://localhost:51852/api/CustomerItem?SearchKeyword=client
+
+Add changes to database 
+	After change to model of LoanManagement.DB.Dao.LoanManagementDBContext
+		In Package Manager Console, select default project LoanManagement.DB
+			"Add-Migration"
+				(will scaffold the next migration based on changes you have made to your model since the last migration was created)
+			"Update-Database"
+				(will apply any pending migrations to the database)
+		
+References:
+
+Using entity framework
+	https://www.entityframeworktutorial.net/code-first/simple-code-first-example.aspx
+
+	https://www.entityframeworktutorial.net/code-first/code-first-conventions.aspx
+
+	https://learn.microsoft.com/en-us/ef/ef6/modeling/code-first/migrations/existing-database?source=recommendations
+	https://learn.microsoft.com/en-us/ef/ef6/modeling/code-first/migrations/
+		
+C:\Program Files\Microsoft SQL Server\150\Tools\Binn
+	SqlLocalDB.exe
+
+connect to local db
+(localdb)\MSSQLLocalDb
+
+api
+	https://www.tutorialspoint.com/asp.net_mvc/asp.net_mvc_web_api.htm
+
+api paging
+	https://code-maze.com/paging-aspnet-core-webapi/
+
+call api local
+	http://localhost:51852/Api/LoanManagement/
+	or
+	http://localhost:51852/Api/LoanManager/
+	http://localhost:51852/Api/Values/
+
+troubleshooting ef6
+	'The Entity Framework provider type 'System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer' registered in the application config file for the ADO.NET provider with invariant name 'System.Data.SqlClient' could not be loaded
+	install ef6 into web api
+	https://stackoverflow.com/questions/21175713/no-entity-framework-provider-found-for-the-ado-net-provider-with-invariant-name
+
+swagger in the web api
+	https://www.c-sharpcorner.com/article/swagger-for-net-mvc-web-api/
+
+Add api reference in the web site
+	url
+		http://localhost:51852/swagger/docs/v1
+		No classname 
+
+		add a reference to System.Runtime.Serialization.dll
+
+consume the web api
+	https://learn.microsoft.com/en-us/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client
+
+
+version DB
+	https://www.red-gate.com/hub/product-learning/sql-source-control/github-and-sql-source-control
+	as an alternative
+	create Database Project
+	import database and then manage database from visual studio
+
+paging
+	https://www.c-sharpcorner.com/article/execute-a-stored-procedure-programmatically/
+
+ajax mvc
+	https://www.c-sharpcorner.com/blogs/using-ajax-in-asp-net-mvc
+
+MVC routes
+	https://www.dotnettricks.com/learn/mvc/route-constraints-in-aspnet-mvc-with-example
+
+MVC Helpers
+	https://www.c-sharpcorner.com/article/html-helpers-in-asp-net-mvc/
+	(basic)
+	https://www.tutorialsteacher.com/mvc/html-helpers
+	(complete)
+	https://dotnettutorials.net/lesson/listbox-html-helper-mvc/
+	(listbox)
+
+MVC Best practices
+	https://www.c-sharpcorner.com/Blogs/asp-net-mvc-best-practices
+	https://www.codeproject.com/Articles/667522/ASP-NET-MVC-Best-Practices
+	https://www.codingame.com/playgrounds/10771/asp-net-mvc-dos-and-dontsbest-practices        
+
+SQL Query execution plans
+	https://www.sqlshack.com/explore-the-secrets-of-sql-server-execution-plans/
+
+SQL ROW_NUMBER
+	https://www.sqlservertutorial.net/sql-server-window-functions/sql-server-row_number-function/
+
+SQL Server joins
+	https://www.sqlservertutorial.net/sql-server-basics/sql-server-joins/
+	https://www.sqlservertutorial.net/sql-server-basics/sql-server-cross-join/
+
+MVC validation
+	https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
+
+datepicker
+	https://www.c-sharpcorner.com/blogs/easy-way-to-use-datepicker-in-asp-net-mvc
+
+SQL
+	https://www.dotnettricks.com/learn/sqlserver/difference-between-cte-and-temp-table-and-table-variable
+
+Profiler
+	https://www.mssqltips.com/sqlservertip/3050/using-the-replay-feature-within-sql-server-profiler/
+
+Caching
+	https://www.c-sharpcorner.com/UploadFile/abhikumarvatsa/output-caching-in-mvc/
+
+Image Sprites:
+	https://www.c-sharpcorner.com/UploadFile/4fcb5a/image-sprite-using-css-in-mvc-5/
+
+Azure Devops environments
+	https://learn.microsoft.com/en-us/azure/deployment-environments/overview-what-is-azure-deployment-environments
+
+Rhino Mocks
+	https://adamprescott.net/2011/04/07/getting-started-with-rhino-mocks-aaa/
+	https://www.wrightfully.com/using-rhino-mocks-quick-guide-to-generating-mocks-and-stubs/
+
+Dependency injection
+	https://www.c-sharpcorner.com/article/dependency-injection-using-unity-resolve-dependency-of-dependencies/
+
+AutoMapper
+	https://dotnettutorials.net/lesson/automapper-in-c-sharp/
+
+Dependency injection config file with factory
+	https://www.devonblog.com/software-development/configure-unity-container-config-file/
+
+Nlog
+	https://nlog-project.org/download/
+
+Git Merge
+	1 select branch in VS
+	2 pull / sync
+	3 do changes
+	4 commit
+	5 push
+	
+	6 select and load other branch in VS
+	7 compare with other branch (if necessary)
+	8 right click in first branch -> Merge into curent branch
+	9 push

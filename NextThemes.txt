@@ -1,0 +1,88 @@
+TODO:
+	
+	improve exception handling with custom exceptions
+	
+	fix ADO, with specific instructions
+	
+	widen unit testing
+
+	add installment -> simulate installment
+		create model and adapt controller and view and js for:
+			loan amount
+			interest rate
+			automatic monthly payment (for 1y), but editable
+			automatic installment duration (1y), but editable			
+	
+Doing:
+	better logging in platform
+	better serializing in platform
+
+Already done:
+	filter and paging customer data
+		https://code-maze.com/paging-aspnet-core-webapi/
+
+	logging Nlog
+		https://github.com/NLog/NLog/wiki/Tutorial
+
+	have different database implementations
+		1> code first for database A
+		2> database first for database B
+
+Concepts/practices
+	MVC Site
+		best practices
+		html helpers
+		routes
+		forms
+		model binding
+			default
+			custom model binding wit route values
+		server-side
+			patterns
+				MVVM
+				MVC
+				factory
+		client-side
+			patterns
+				observable
+			datepicker
+			bootstrap
+			ajax
+			jquery
+			css
+
+	MVC Web API
+		Traditional web service in/out classes in api
+		API Style classes/entities
+		Entity Framework code first
+		Traditional ADO.Net call to SP
+		Patterns
+			Dependency injection
+			Repository
+			Singleton
+			Proxy
+
+SQL
+	
+	stored procedures		
+	pagination
+	user defined funcions
+		scalar valued functions
+	queries
+		TOP
+		OFFSET FETCH
+		RANK()
+		union
+		union all
+		joins (left, rigth, full, cross, inner)
+	query execution plan
+	temporary tables
+		cte (;with)
+		temp table (#)
+		global temp table (##)
+		table variable (@)
+	
+	Profiler
+	
+
+		

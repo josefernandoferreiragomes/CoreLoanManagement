@@ -1,0 +1,60 @@
+﻿@model CoreLoanManagement.WebSite.Models.SearchCustomersViewModel
+@{
+    ViewBag.Title = "Search Customers";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Search customers</p>
+
+<div class="container">
+    @using (Html.BeginForm("SearchCustomers", "Customer", FormMethod.Post)) 
+    { 
+        <div class="col-lg-2">
+            @Html.LabelFor(m => m.SearchKeword)
+        </div>
+    <div class="col-lg-2">
+        @Html.TextBoxFor(m => m.SearchKeword)
+    </div>
+    <div>
+        <input type="submit" value="Search" />
+    </div>
+    }
+</div>
+
+<div>
+    @if (Model.Customers.Count == 0)
+    {
+        <div>No filter selected or no customers for that filter</div>
+    }
+    else
+    {
+    <table class="table">
+        <thead>
+            <tr class="tab-content bg-primary">
+                <td>
+                    Id
+                </td>
+                <td>
+                    Name
+                </td>
+            </tr>
+        </thead>
+            @foreach (CoreLoanManagement.WebSite.Models.CustomerItem customer in Model.Customers)
+        {
+
+            <tbody class="tab-content">
+                <tr>
+                    <td>
+                        @customer.CustomerId
+                    </td>
+                    <td>
+                        @customer.CustomerName
+                    </td>
+                </tr>
+            </tbody>
+
+        }
+    </table>
+    }
+</div>

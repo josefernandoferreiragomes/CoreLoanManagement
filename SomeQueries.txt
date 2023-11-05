@@ -1,0 +1,51 @@
+;with cte as(
+SELECT cust.CustomerId, cust.CustomerName, ln.LoanDescription, inst.Installment, inst.InstallmentId, 
+ROW_NUMBER() OVER (ORDER BY inst.InstallmentId) AS RowId
+FROM Installments inst INNER JOIN Loans ln ON inst.LoanId = ln.LoanId INNER JOIN Customers cust ON ln.Customer_CustomerId=cust.CustomerId		
+)	
+SELECT * FROM cte WHERE RowId BETWEEN 1 AND 5
+
+
+USE [LoanManagement.DB.Dao.LoanManagementDBContext]
+SELECT cust.CustomerName, ln.LoanDescription		
+FROM Customers cust LEFT JOIN Loans ln ON cust.CustomerId = ln.Customer_CustomerId
+WHERE CustomerName LIKE '%J%'
+UNION
+SELECT cust.CustomerName, ln.LoanDescription		
+FROM Customers cust LEFT JOIN Loans ln ON cust.CustomerId = ln.Customer_CustomerId
+WHERE CustomerName LIKE '%B%'
+
+USE [LoanManagement.DB.Dao.LoanManagementDBContext]
+
+;WITH CTE AS(
+SELECT cust.CustomerName, ln.LoanDescription		
+FROM Customers cust LEFT JOIN Loans ln ON cust.CustomerId = ln.Customer_CustomerId
+)
+SELECT * FROM CTE WHERE LoanDescription IS NULL
+
+https://stackoverflow.com/questions/3439110/sql-server-update-a-table-by-using-order-by
+
+USE [LoanManagement.DB.Dao.LoanManagementDBContext]
+
+SELECT cust.CustomerId, cust.CustomerName, ln.LoanDescription, inst.Installment, inst.InstallmentId, 
+ROW_NUMBER() OVER (ORDER BY inst.InstallmentId) AS RowId
+INTO #TEMPTABLE
+FROM Installments inst INNER JOIN Loans ln ON inst.LoanId = ln.LoanId INNER JOIN Customers cust ON ln.Customer_CustomerId=cust.CustomerId		
+	
+SELECT * FROM #TEMPTABLE WHERE RowId BETWEEN 1 AND 5
+
+DECLARE @TABLEVAR TABLE(
+	CustomerId INT,
+	CustomerName NVARCHAR(50),
+	LoanDescription NVARCHAR(50),
+	Installment DECIMAL(15,5),
+	InstallmentId INT,
+	RowId INT
+)
+INSERT INTO @TABLEVAR
+SELECT cust.CustomerId, cust.CustomerName, ln.LoanDescription, inst.Installment, inst.InstallmentId,
+ROW_NUMBER() OVER (ORDER BY inst.InstallmentId) AS RowId
+
+FROM Installments inst INNER JOIN Loans ln ON inst.LoanId = ln.LoanId INNER JOIN Customers cust ON ln.Customer_CustomerId=cust.CustomerId		
+	
+SELECT * FROM @TABLEVAR WHERE RowId BETWEEN 1 AND 5

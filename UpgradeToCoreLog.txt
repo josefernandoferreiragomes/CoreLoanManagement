@@ -1,0 +1,7 @@
+Duplicate Project
+Rename sln folder
+Rename sln file
+Rename sln references
+Rename each project folder
+Rename each csproj file
+Rename additional DB project files
