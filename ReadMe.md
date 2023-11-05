@@ -1,4 +1,18 @@
-# Loan Management FullStack exercise
+# Upgrade Loan Management exercise app to .Net Core
+
+Create new projects in .net core 6.0 for each .net framework project
+
+Start from base dependencies and then follow through
+
+Copy all classes and folders to the new projects
+
+Replace web.config / app.config for appsettings.json
+
+Use built-in dependency injection
+
+Re-add the api's
+
+## Loan Management FullStack exercise
 
 ## Architecture
 ### Databases:
