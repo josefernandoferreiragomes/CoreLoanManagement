@@ -1,7 +1,6 @@
-Duplicate Project
-Rename sln folder
-Rename sln file
-Rename sln references
-Rename each project folder
-Rename each csproj file
-Rename additional DB project files
+create new projects in .net core 6.0 for each .net framework project
+start from base dependencies and then follow through
+copy all classes and folders to the new projects
+replace web.config / app.config for appsettings.json
+use built-in dependency injection
+re-add the api's
