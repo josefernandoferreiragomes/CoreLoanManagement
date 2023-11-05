@@ -6,7 +6,7 @@ namespace CoreLoanManagement.WebSite.Factories
     {
         private IConfigurationRoot _configuration;
         private HttpClient _httpclient;
-        public ConcreteAPIClientFactoryGeneric(IConfigurationRoot configurationRoot)
+        public ConcreteAPIClientFactoryGeneric()
         {
             _httpclient = new HttpClient();
             var builder = new ConfigurationBuilder()
