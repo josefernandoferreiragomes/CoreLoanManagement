@@ -2,6 +2,7 @@
 using LoanManagement.DB.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System.Configuration;
 using System.Data;
 
@@ -10,6 +11,8 @@ namespace LoanManagement.DB.DaoSqlExecuters
 {
     public class LoanManagementDBExecuter
     {
+        //private IConfigurationRoot _configuration;
+        //private const string ConfigKeyName= "";
         DbContextOptions<LoanManagementDBContext> _options;
         private String SqlconString;
 
@@ -21,6 +24,8 @@ namespace LoanManagement.DB.DaoSqlExecuters
         public LoanManagementDBExecuter(DbContextOptions<LoanManagementDBContext> options)
         {
             _options=options;
+            //_configuration = new Configuration();
+            //SqlconString = _configuration.GetConnectionString(ConfigKeyName);
         }
         public LoanManagementDBExecuter(DbContextOptions<LoanManagementDBContext> options, string connectionString)
         {

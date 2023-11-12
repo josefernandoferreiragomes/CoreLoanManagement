@@ -24,9 +24,9 @@ namespace CoreLoanManagement.WebSite.Factories
             switch (typeof(T).Name)
             {
                 case "Management":
-                    _httpclient.BaseAddress = new Uri((string)_configuration.GetValue(typeof(string), "CustomerApiClient"));
+                    _httpclient.BaseAddress = new Uri((string)_configuration.GetValue(typeof(string), "LoanApiClient"));
                     //_httpclient.BaseAddress = new Uri(@"http://localhost:51852/Api/LoanManager/");
-                    data = (T)Activator.CreateInstance(typeof(T), _httpclient);
+                    data = (T)Activator.CreateInstance(typeof(T), (string)_configuration.GetValue(typeof(string), "LoanApiClient"), _httpclient);
                     break;
                 //case "LoanManagerClient":
                 //    _httpclient.BaseAddress = new Uri((string)_configuration.GetValue(typeof(string),"CustomerApiClient"));

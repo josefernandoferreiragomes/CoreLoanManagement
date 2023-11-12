@@ -75,13 +75,13 @@ namespace CoreLoanManagement.WebSite.Repository
             return output;
         }
 
-        public async Task<List<ClientApi.CustomerLoanInstallmentDBOutItem>> ObtainLoanInstallmentPage(int CustomerId, int pageSize, int LastPageLastItemId)
+        public async Task<List<CoreLoanManagement.WebSite.ClientApi.CustomerLoanInstallmentDBOutItem>> ObtainLoanInstallmentPage(int CustomerId, int pageSize, int LastPageLastItemId)
         {
 
-            List<ClientApi.CustomerLoanInstallmentDBOutItem> response = new List<ClientApi.CustomerLoanInstallmentDBOutItem>();
+            List<CoreLoanManagement.WebSite.ClientApi.CustomerLoanInstallmentDBOutItem> response = new List<CoreLoanManagement.WebSite.ClientApi.CustomerLoanInstallmentDBOutItem>();
 
-            ConcreteAPIClientFactoryGeneric<ClientApi.Management> clientFactory = new ConcreteAPIClientFactoryGeneric<ClientApi.Management>();
-            ClientApi.Management client = clientFactory.GetClient();
+            ConcreteAPIClientFactoryGeneric<CoreLoanManagement.WebSite.ClientApi.Management> clientFactory = new ConcreteAPIClientFactoryGeneric<CoreLoanManagement.WebSite.ClientApi.Management>();
+            CoreLoanManagement.WebSite.ClientApi.Management client = clientFactory.GetClient();
 
             try
             {

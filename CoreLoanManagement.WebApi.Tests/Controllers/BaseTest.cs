@@ -42,7 +42,7 @@ namespace LoanManagement.Tests.Controllers
                 .Options;
 
 
-            db = new DBLoanManagerRepository(_options);
+            db = new DBLoanManagerRepository(_options, _configuration.GetConnectionString("DefaultConnection"));
 
             loanManagerRepository = new LoanManagerRepository(db);
         }

@@ -15,8 +15,8 @@ namespace LoanManagement.Tests.Controllers
             // Arrange
             LoanInstallmentController controller = new LoanInstallmentController(loanManagerRepository);
             int CustomerId, PageSize, LastPage;
-
-            CustomerId = 4;
+            
+            CustomerId = 8;
             PageSize = 2;
             LastPage = 0;
             // Act
