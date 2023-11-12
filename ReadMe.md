@@ -10,7 +10,11 @@ Replace web.config / app.config for appsettings.json
 
 Use built-in dependency injection
 
-Re-add the api's
+Re-add the api's reference
+
+...Still under refactor
+
+# Documentation of original solution, for reference...
 
 ## Loan Management FullStack exercise
 
