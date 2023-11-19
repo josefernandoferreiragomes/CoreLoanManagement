@@ -6,6 +6,8 @@
     <title>@ViewData["Title"] - CoreLoanManagement.WebSite</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="~/lib/jqueryui/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="~/lib/jqueryui/themes/base/jquery-ui.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/CoreLoanManagement.WebSite.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -50,7 +52,13 @@
             &copy; 2023 - CoreLoanManagement.WebSite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <script>
+        var applicationURL = "http://localhost:5272/Customer/";
+                        //GET FROM CONFIG
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jqueryui/jquery-ui.js"></script>
+    <script src="~/lib/jqueryui/jquery-ui.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

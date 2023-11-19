@@ -7,17 +7,17 @@ namespace CoreLoanManagement.WebSite.Repository
     public class ApiLoanRepository : IApiLoanRepository
     {
 
-        public async Task<List<ClientApi.Customer>> ObtainCustomers()
+        public async Task<List<ClientApi.CustomerItem>> ObtainCustomers()
         {
 
-            List<ClientApi.Customer> response = new List<ClientApi.Customer>();
+            List<ClientApi.CustomerItem> response = new List<ClientApi.CustomerItem>();
 
             ConcreteAPIClientFactoryGeneric<ClientApi.Management> clientFactory = new ConcreteAPIClientFactoryGeneric<ClientApi.Management>();
             ClientApi.Management client = clientFactory.GetClient();
 
             try
             {
-                response = (List<ClientApi.Customer>)await client.GetCustomerItemAsync(null, null, null, null, null, null, "");
+                response = (List<ClientApi.CustomerItem>)await client.GetCustomerItemAsync(null, null, null, null, null, null, "j");
             }
             catch (ClientApi.ApiException ex)
             {

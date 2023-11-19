@@ -5,7 +5,7 @@ namespace CoreLoanManagement.WebSite.Interfaces
     public interface IApiLoanRepository
     {
 
-        Task<List<ClientApi.Customer>> ObtainCustomers();
+        Task<List<ClientApi.CustomerItem>> ObtainCustomers();
 
         Task<List<CustomerItem>> SearchCustomers(string searchKeyword, int currentPage, int pageSize);
 

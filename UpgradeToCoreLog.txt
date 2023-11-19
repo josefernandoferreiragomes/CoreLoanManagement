@@ -1,6 +1,22 @@
 create new projects in .net core 6.0 for each .net framework project
+
 start from base dependencies and then follow through
+
 copy all classes and folders to the new projects
+	and correct build errors
+
 replace web.config / app.config for appsettings.json
 use built-in dependency injection
+	instead of Unity
+
 re-add the api's
+	the various entities, initially with separate api's and url's, have been merged into a single base url, with different entity urls
+
+add / correct client-side libraries paths
+
+	WebSite project -> add client side library
+		jqueryui
+
+add custom script folders/files on the wwwroot/lib folder
+	and correct paths for custom scripts files
+

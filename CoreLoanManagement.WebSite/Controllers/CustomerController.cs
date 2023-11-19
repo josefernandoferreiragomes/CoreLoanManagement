@@ -150,10 +150,10 @@ namespace CoreLoanManagement.WebSite.Controllers
             CustomerViewModel customerViewModel = new CustomerViewModel();
             customerViewModel.CustomerList = new List<Customer>();
 
-            List<ClientApi.Customer> response;
+            List<ClientApi.CustomerItem> response;
             response = await _loanRepository.ObtainCustomers();
 
-            foreach (ClientApi.Customer customerItem in response)
+            foreach (ClientApi.CustomerItem customerItem in response)
             {
                 customerViewModel.CustomerList.Add(new Customer { CustomerName = customerItem.CustomerName, Id = (int)customerItem.CustomerId });
             }
