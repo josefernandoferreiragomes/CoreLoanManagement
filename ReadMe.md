@@ -1,67 +1,26 @@
 # Upgrade Loan Management exercise app to .Net Core
 
-Create new projects in .net core 6.0 for each .net framework project
+### Create new projects in .net core 6.0 for each .net framework project
 
-Start from base dependencies and then follow through
+### Start from base dependencies and then follow through
 
-Copy all classes and folders to the new projects
+### Copy all classes and folders to the new projects. And correct build errors
 
-Replace web.config / app.config for appsettings.json
+### Replace web.config / app.config for appsettings.json
 
-Use built-in dependency injection
+### Use built-in dependency injection instead of unity
 
-Re-add the api's reference
+### Re-add the api's
+The various entities, initially with separate api's and url's, have been merged into a single base url, with different entity urls
 
-...Still under refactor
+### Add / correct client-side libraries paths
+
+### WebSite project - add client side library jqueryui
+
+### Add custom script folders/files on the wwwroot/lib folder
+And correct paths for custom scripts files
+
 
 # Documentation of original solution, for reference...
-
-## Loan Management FullStack exercise
-
-## Architecture
-### Databases:
-	LoanManagement.DB.Dao.LoanManagementDBContext
-	LoanManagementDB
-
-## Data Access Layer
-### LoanManagement.DB
-	LoanManagementDBContext
-		Database Access through EntityFramework
-	LoanManagementDBExecuter
-		Database Access through SqlDataReader
-
-## Integration layer:
-### LoanManagement.Web
-	http://localhost:51852/Api/LoanManager/
-	http://localhost:51852/Api/LoanInstallment/
-	http://localhost:51852/Api/CustomerItem/
 	
-	Technical Features
-		Dependency Injection
-		Logging
-		Mappers
-		Swagger
-
-	Patterns
-		Singleton
-		Repository
-
-## Presentation layer:
-### LoanManagement.WebSite
-	http://localhost:61104/
-	
-	Technical Features
-		Dependency Injection
-		Generics		
-
-	Patterns
-		Singleton
-		Repository
-		Observable
-		Factory
-
-## Libraries
-### LoanManagement.Platform
-	Nlog
-	Unity
-	AutoMapper
+	https://github.com/josefernandoferreiragomes/LoanManagement
