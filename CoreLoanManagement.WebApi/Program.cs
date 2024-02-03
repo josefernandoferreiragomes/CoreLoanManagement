@@ -6,8 +6,8 @@ using LoanManagement.Repositories;
 using LoanManagement.Web.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.WebHost.UseKestrel();
-builder.WebHost.UseIISIntegration();
+//builder.WebHost.UseKestrel();
+//builder.WebHost.UseIISIntegration();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

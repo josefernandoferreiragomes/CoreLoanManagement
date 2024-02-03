@@ -18,7 +18,7 @@ namespace LoanManagement.DB.Repositories
         public DBLoanManagerRepository() 
         {
             var contextOptions = new DbContextOptionsBuilder<LoanManagementDBContext>()
-            .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=LoanManagement.DB.Dao.LoanManagementDBContext")
+            .UseSqlServer(@"Server=DESKTOP-00TH3CU\\SQLEXPRESS;Database=LoanManagement.DB.Dao.LoanManagementDBContext")
             .Options;
 
             _dbContext = new LoanManagementDBContext(contextOptions);
