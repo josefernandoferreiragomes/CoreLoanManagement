@@ -25,10 +25,10 @@ namespace LoanManagement.Tests.Controllers
             IEnumerable<string> result = controller.Get();            
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual(2, result.Count());
-            Assert.AreEqual("value1", result.ElementAt(0));
-            Assert.AreEqual("value2", result.ElementAt(1));
+            Assert.That(result!=null);
+            Assert.Equals(2, result.Count());
+            Assert.Equals("value1", result.ElementAt(0));
+            Assert.Equals("value2", result.ElementAt(1));
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace LoanManagement.Tests.Controllers
             string result = controller.Get(5);
 
             // Assert
-            Assert.AreEqual("value", result);
+            Assert.Equals("value", result);
         }
 
         [Test]

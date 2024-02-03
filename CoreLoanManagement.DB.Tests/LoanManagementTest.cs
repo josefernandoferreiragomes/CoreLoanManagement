@@ -102,7 +102,7 @@ namespace LoanManagement.DB.Tests
             IEnumerable<Customer> filteredCustomers = db.GetPageOfClassGeneric(5, 3, "1");
 
             //assert
-            Assert.IsNotNull(filteredCustomers);
+            Assert.That(filteredCustomers!=null);
 
         }
     }

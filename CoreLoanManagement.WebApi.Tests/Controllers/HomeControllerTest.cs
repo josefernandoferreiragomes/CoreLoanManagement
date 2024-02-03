@@ -17,8 +17,8 @@ namespace LoanManagement.Tests.Controllers
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.IsNotNull(result);
-            Assert.AreEqual("Home Page", result.ViewData.ToString());
+            Assert.That(result != null);
+            Assert.Equals("Home Page", result.ViewData.ToString());
         }
     }
 }

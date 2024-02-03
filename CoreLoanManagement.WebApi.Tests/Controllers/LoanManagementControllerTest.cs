@@ -17,7 +17,7 @@ namespace LoanManagement.Tests.Controllers
             var result = controller.Get();
 
             // Assert
-            Assert.IsNotNull(result);
+            Assert.That(result != null);
             
         }
     }

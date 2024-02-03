@@ -23,7 +23,7 @@ namespace LoanManagement.Tests.Controllers
             IEnumerable<LoanManagement.DB.Data.CustomerLoanInstallmentDBOutItem> ListOfItems = controller.Get(CustomerId, PageSize, LastPage);
 
             // Assert
-            Assert.IsNotNull(ListOfItems);
+            Assert.That(ListOfItems != null);
             
         }
     }

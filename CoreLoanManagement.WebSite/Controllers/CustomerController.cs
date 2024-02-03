@@ -64,7 +64,7 @@ namespace CoreLoanManagement.WebSite.Controllers
         }
         
         [HttpPost]
-        public ActionResult AddCustomerFormCollection(FormCollection collection)
+        public ActionResult AddCustomerFormCollection(Microsoft.AspNetCore.Http.IFormCollection collection)
         {
 
             //TODO Send information to API

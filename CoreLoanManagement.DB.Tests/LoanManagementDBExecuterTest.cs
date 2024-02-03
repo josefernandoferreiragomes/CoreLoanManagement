@@ -97,9 +97,9 @@ namespace LoanManagement.DB.Tests
             
             //Assert
 
-            Assert.IsTrue(objOut != null);
-            Assert.IsTrue(objOut.ListOfItems!=null);
-            Assert.IsTrue(objOut.ListOfItems.Count > 0);
+            Assert.That(objOut != null);
+            Assert.That(objOut.ListOfItems!=null);
+            Assert.That(objOut.ListOfItems.Count > 0);
             Console.WriteLine(String.Format("RowCount:{0}",objOut.ListOfItems.Count));
         }
     }
