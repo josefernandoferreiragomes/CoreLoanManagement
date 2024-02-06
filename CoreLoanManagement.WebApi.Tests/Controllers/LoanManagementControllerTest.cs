@@ -1,5 +1,7 @@
 ﻿using LoanManagement;
 using LoanManagement.Controllers;
+using LoanManagement.DB.Repositories;
+using LoanManagement.Repositories;
 
 
 namespace LoanManagement.Tests.Controllers
@@ -19,6 +21,15 @@ namespace LoanManagement.Tests.Controllers
             // Assert
             Assert.That(result != null);
             
+        }
+
+        [Test]
+        public void TestCustomers()
+        {
+            var _dbLoanManagerRepository = new DBLoanManagerRepository();
+            var _LoanManagementRepository = new LoanManagerRepository(_dbLoanManagerRepository);
+            var result = _LoanManagementRepository.GetPageOfClassGeneric(1, 1, "jack");
+            Assert.That(result != null);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace LoanManagement.Repositories
         {
             return _repository.GetPageOfCustomerLoanInstallment(objIn);
         }
-        List<CustomerItem> ILoanManagerRepository.GetPageOfClassGeneric(int page, int pageSize, string nameFilter)
+        public List<CustomerItem> GetPageOfClassGeneric(int page, int pageSize, string nameFilter)
         {
             List<CustomerItem> customersSV = new List<CustomerItem>();
             List<Customer> customersDB = _repository.GetPageOfClassGeneric(page, page, nameFilter);

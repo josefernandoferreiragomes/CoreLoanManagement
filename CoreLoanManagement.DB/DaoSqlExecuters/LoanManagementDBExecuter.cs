@@ -35,7 +35,7 @@ namespace LoanManagement.DB.DaoSqlExecuters
         SqlConnection sqlCon = null;
 
         //https://learn.microsoft.com/en-us/ef/core/miscellaneous/connection-strings
-        //String SqlconString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LoanManagementDB;Integrated Security=true";
+        //String SqlconString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LoanManagementDB;Encrypt=False;Integrated Security=true";
         public CustomerLoanInstallmentDBOut CustomerInstallmentGetPage(CustomerLoaInstallmentDBIn objIn)
         {
             CustomerLoanInstallmentDBOut ObjDbOut =new CustomerLoanInstallmentDBOut();
