@@ -80,36 +80,48 @@ namespace LoanManagement.DB.Repositories
             List<Customer> customersOut = new List<Customer>();
             
             LoggerHelper.GetLogger().Info(string.Format("Before DB Call {0}{1}", this.GetType(), System.Reflection.MethodInfo.GetCurrentMethod()));
+        
+            var builder = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("appsettings.json");
 
-            //debug
-            customersOut = TestDbContext(nameFilter);
+            var _configuration = builder.Build();
 
-            //var query = _dbContext.Customers
-            //            .OrderBy(on => on.CustomerName)
-            //            .Where(c => c.CustomerName.Contains(nameFilter))
-            //            .Skip((page - 1) * pageSize)
-            //            .Take(pageSize);
-            //try
-            //{
-            //    List<Customer> customers = query.ToList();                
-            //    LoggerHelper.GetLogger().Info(string.Format("After DB Call {0}{1}{2}", customers.GetType(), System.Reflection.MethodInfo.GetCurrentMethod(), JsonSerializerHelper.SerializeToJson<List<Customer>>(customers)));
-                
-            //    //for temporary purposes, simplifying
-            //    foreach (Customer custItem in customers)
-            //    {
-            //        Customer tempCustomer = custItem;
-            //        tempCustomer.LoanList = new List<Loan>();
-            //        customersOut.Add(tempCustomer);
-            //    }
-            //}
-            //catch (Exception exp)
-            //{
-            //    throw exp;
-            //}
-            //finally
-            //{
-                
-            //}
+
+            DbContextOptions<LoanManagementDBContext> _options;
+            _options = new DbContextOptionsBuilder<LoanManagementDBContext>()
+                .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
+                .Options;
+            using (var context = new LoanManagementDBContext(_options))
+            {
+
+                var query = context.Customers
+                        .OrderBy(on => on.CustomerName)
+                        .Where(c => c.CustomerName.Contains(nameFilter))
+                        .Skip((page - 1) * pageSize)
+                        .Take(pageSize);
+                try
+                {
+                    List<Customer> customers = query.ToList();
+                    LoggerHelper.GetLogger().Info(string.Format("After DB Call {0}{1}{2}", customers.GetType(), System.Reflection.MethodInfo.GetCurrentMethod(), JsonSerializerHelper.SerializeToJson<List<Customer>>(customers)));
+
+                    //for temporary purposes, simplifying
+                    foreach (Customer custItem in customers)
+                    {
+                        Customer tempCustomer = custItem;
+                        tempCustomer.LoanList = new List<Loan>();
+                        customersOut.Add(tempCustomer);
+                    }
+                }
+                catch (Exception exp)
+                {
+                    throw exp;
+                }
+                finally
+                {
+
+                }
+            }
             return customersOut;
         }
 
@@ -137,42 +149,6 @@ namespace LoanManagement.DB.Repositories
             return objOut;
         }
 
-        public List<Customer> TestDbContext(string nameFilter)
-        {
-            var builder = new ConfigurationBuilder()
-               .SetBasePath(Directory.GetCurrentDirectory())
-               .AddJsonFile("appsettings.json");
-
-            var _configuration = builder.Build();
-
-
-            DbContextOptions<LoanManagementDBContext> _options;
-            _options = new DbContextOptionsBuilder<LoanManagementDBContext>()
-                .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
-                .Options;
-            using (var context = new LoanManagementDBContext(_options))
-            {
-                // Create and save a new Customer
-                //var name = "Paul";
-
-                //var customer = new Customer { CustomerName = name };
-                //context.Customers.Add(customer);
-                //context.SaveChanges();
-
-                //// Display all customers from the database
-                var query = context.Customers
-                            .OrderBy(on => on.CustomerName)
-                            .Where(c => c.CustomerName.Contains(nameFilter))
-                            .Skip((1 - 1) * 2)
-                            .Take(2);
-
-                Console.WriteLine("All customers in the database:");
-                //foreach (var item in query)
-                //{
-                    Console.WriteLine($"query.FirstOrDefault.CustomerName: {query?.FirstOrDefault()?.CustomerName}");
-                //}
-                return query.ToList();
-            }
-        }
+      
     }
 }
