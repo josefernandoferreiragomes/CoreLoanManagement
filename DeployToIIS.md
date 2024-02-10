@@ -16,12 +16,18 @@ The user running the pool should be NetworkService
 ### publish application
 >In Package Manager Console, select default project context
 
+can use publish script file, by writing ".\PublishScript.ps1" in PackageManagerConsole 
+
 #### Web Site
 >dotnet publish -c Release
 
 >copy folder ...\CoreLoanManagement\CoreLoanManagement.WebSite\bin\Release\net8.0\publish
 
 >to folder 	C:\inetpub\wwwroot\CoreLoanManagement.WebSite
+
+>robocopy .\CoreLoanManagement.WebSite\bin\Release\net8.0\publish C:\inetpub\wwwroot\CoreLoanManagement.WebSite\
+
+>copy .\CoreLoanManagement.WebSite\Configuration\Web.config C:\inetpub\wwwroot\CoreLoanManagement.WebSite\
 
 >add to web.config, inside tag <aspNetCore...
 	<environmentVariables>
@@ -37,6 +43,10 @@ http://localhost/CoreLoanManagement.WebSite/
 >copy folder ...\CoreLoanManagement\CoreLoanManagement.WebApi\bin\Release\net8.0\publish
 
 >to folder 	C:\inetpub\wwwroot\CoreLoanManagement.WebApi
+
+>robocopy .\CoreLoanManagement.WebApi\bin\Release\net8.0\publish C:\inetpub\wwwroot\CoreLoanManagement.WebApi
+
+>copy .\CoreLoanManagement.WebApi\Configuration\web.config C:\inetpub\wwwroot\CoreLoanManagement.WebApi
 
 >add to web.config, inside tag <aspNetCore...
 	<environmentVariables>
