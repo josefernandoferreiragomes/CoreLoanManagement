@@ -12,19 +12,42 @@ namespace LoanManagement.DB.Repositories
 {
     public class DBLoanManagerRepository : IDBLoanManagerRepository
     {
+        // to have the same Configuration object as in Startup
         private IConfigurationRoot _configuration;
+
+        // represents database's configuration
+        private DbContextOptions<LoanManagementDBContext> _options;
         LoanManagementDBContext _dbContext { get; set; }
         LoanManagementDBExecuter _dbExecuter { get; set; }
 
-        public DBLoanManagerRepository() 
-        {
-            var contextOptions = new DbContextOptionsBuilder<LoanManagementDBContext>()
-            .UseSqlServer(@"Data Source=.\\SQLEXPRESS;Initial Catalog=LoanManagement.DB.Dao.LoanManagementDBContext;Encrypt=False;Integrated Security=true")
-            .Options;
+        //public DBLoanManagerRepository() 
+        //{
+        //    var contextOptions = new DbContextOptionsBuilder<LoanManagementDBContext>()
+        //    .UseSqlServer(@"Data Source=.\\SQLEXPRESS;Initial Catalog=LoanManagement.DB.Dao.LoanManagementDBContext;Encrypt=False;Integrated Security=true")
+        //    .Options;
 
-            _dbContext = new LoanManagementDBContext(contextOptions);
-            
-            _dbExecuter= new LoanManagementDBExecuter();
+        //    _dbContext = new LoanManagementDBContext(contextOptions);
+
+        //    _dbExecuter= new LoanManagementDBExecuter();
+        //    SetupLog();
+
+
+        //}
+        public DBLoanManagerRepository()
+        {
+
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            _configuration = builder.Build();
+            _options = new DbContextOptionsBuilder<LoanManagementDBContext>()
+                .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
+                .Options;
+
+            _dbContext = new LoanManagementDBContext(_options);
+
+            _dbExecuter = new LoanManagementDBExecuter();
             SetupLog();
 
 

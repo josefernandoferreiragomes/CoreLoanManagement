@@ -14,6 +14,9 @@ echo 'copy the web.config files to the root iis folder'
 xcopy /Y .\CoreLoanManagement.WebSite\Configuration\Web.config C:\inetpub\wwwroot\CoreLoanManagement.WebSite\
 xcopy /Y .\CoreLoanManagement.WebApi\Configuration\web.config C:\inetpub\wwwroot\CoreLoanManagement.WebApi\
 
+echo 'copy the appsettings.json'
+xcopy /Y .\CoreLoanManagement.WebSite\appsettingsSql.json C:\inetpub\wwwroot\CoreLoanManagement.WebSite\appsettings.json
+
 echo 'iisreset...'
 iisreset
 
