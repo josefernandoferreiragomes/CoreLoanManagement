@@ -67,7 +67,14 @@ class LoanInstallmentClass extends ObserverClass{
         if (String(elemId).includes("LoanAmount")) { this.loanAmount = elemVal; }
         else if (String(elemId).includes("LoanInterestRate")) { this.loanInterestRate = elemVal; }        
         else if (String(elemId).includes("LoanDuration")) { this.loanDuration = elemVal; }        
-        $("#" + this.elementId).val(CalculateLoanInstallment(this.loanAmount, this.loanInterestRate, this.loanDuration));
+
+        if (this.loanAmount > 0 && this.LoanInterestRate > 0 && this.loanDuration > 0) {
+
+            var loanInstallment = CalculateLoanInstallment(this.loanAmount, this.loanInterestRate, this.loanDuration);
+            $("#" + this.elementId).val(loanInstallment);
+
+        }
+
     }).bind(this)
 }
 ////////////////////////////////
