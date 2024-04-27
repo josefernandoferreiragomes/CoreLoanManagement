@@ -19,20 +19,7 @@ namespace LoanManagement.DB.Repositories
         private DbContextOptions<LoanManagementDBContext> _options;
         LoanManagementDBContext _dbContext { get; set; }
         LoanManagementDBExecuter _dbExecuter { get; set; }
-
-        //public DBLoanManagerRepository() 
-        //{
-        //    var contextOptions = new DbContextOptionsBuilder<LoanManagementDBContext>()
-        //    .UseSqlServer(@"Data Source=.\\SQLEXPRESS;Initial Catalog=LoanManagement.DB.Dao.LoanManagementDBContext;Encrypt=False;Integrated Security=true")
-        //    .Options;
-
-        //    _dbContext = new LoanManagementDBContext(contextOptions);
-
-        //    _dbExecuter= new LoanManagementDBExecuter();
-        //    SetupLog();
-
-
-        //}
+      
         public DBLoanManagerRepository()
         {
 

@@ -20,3 +20,6 @@ add / correct client-side libraries paths
 add custom script folders/files on the wwwroot/lib folder
 	and correct paths for custom scripts files
 
+EF Core
+https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/
+      PM > Install-Package Microsoft.EntityFrameworkCore.SqlServer

@@ -159,3 +159,6 @@ Git Merge
 	7 compare with other branch (if necessary)
 	8 right click in first branch -> Merge into curent branch
 	9 push
+
+Observable pattern
+	https://medium.com/@Aether7/the-observer-pattern-in-javascript-6b317bbc7ecd

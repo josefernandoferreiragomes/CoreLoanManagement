@@ -60,12 +60,13 @@ class LoanInstallmentClass extends ObserverClass{
     loanDuration = 0;
     constructor(elemId) {        
         super(elemId);
-        this.loanDuration = 1;
+        this.loanDuration = 3;
     }
     notify = (function (elemVal, elemId) {
 
         if (String(elemId).includes("LoanAmount")) { this.loanAmount = elemVal; }
         else if (String(elemId).includes("LoanInterestRate")) { this.loanInterestRate = elemVal; }        
+        else if (String(elemId).includes("LoanDuration")) { this.loanDuration = elemVal; }        
         $("#" + this.elementId).val(CalculateLoanInstallment(this.loanAmount, this.loanInterestRate, this.loanDuration));
     }).bind(this)
 }

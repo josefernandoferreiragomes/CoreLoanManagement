@@ -17,26 +17,15 @@ namespace LoanManagement.DB.Dao
             _connectionString = connectionString;
         }
 
-        //https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/
-        //PM > Install-Package Microsoft.EntityFrameworkCore.SqlServer
+        
         public LoanManagementDBContext(DbContextOptions<LoanManagementDBContext> options)
         : base(options)
         {
+            //Database.SetInitializer<LoanManagementDBContext>(new CreateDatabaseIfNotExists<LoanManagementDBContext>());
+
+            //for reset purposes
+            //Database.SetInitializer<LoanManagementDBContext>(new DropCreateDatabaseAlways<LoanManagementDBContext>());
         }
-        //public LoanManagementDBContext() : base( new DbContextOptionsBuilder(  new DbContextOptions"name=LoanManagement.DB.Dao.LoanManagementDBContext" ) ) 
-        //{
-
-        //    //Database.SetInitializer<LoanManagementDBContext>(new CreateDatabaseIfNotExists<LoanManagementDBContext>());
-
-        //    //for reset purposes
-        //    //Database.SetInitializer<LoanManagementDBContext>(new DropCreateDatabaseAlways<LoanManagementDBContext>());
-
-        //}
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(_connectionString);
-        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
