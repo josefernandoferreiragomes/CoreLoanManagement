@@ -1,10 +1,10 @@
-﻿////////////////////////////////
-//Observer library declaration//
-////////////////////////////////
+﻿//////////////////////////////////
+///Observer library declaration///
+//////////////////////////////////
 
-////////////////////////////////
+//////////////////////////////////
 //Observer prototype declaration//
-////////////////////////////////
+//////////////////////////////////
 function ObserverObj(elemId) {
     console.log("observer created " + elemId);
     this.elementId = elemId;
@@ -14,9 +14,9 @@ function ObserverObj(elemId) {
     }).bind(this);
 }
 
-////////////////////////////////
+////////////////////////////////////
 //Observable prototype declaration//
-////////////////////////////////
+////////////////////////////////////
 function ObservableObj(elemId) {    
     console.log("observable created " + elemId);
     this.elementId = elemId;
@@ -35,10 +35,30 @@ function ObservableObj(elemId) {
     this.AttatchFocusOut = (function () {
         $("#" + this.elementId).focusout(this.notifyObservers);
     }).bind(this);
+
+    //// prototype usage example (paste on on document ready)
+    ////using prototype
+    ////observer pattern setup
+    ////add observables considering their id's
+    //var ObservableUIElem = new ObservableObj("CustomerNameTextBox");
+    //var ObservableUIElem2 = new ObservableObj("LoanDescriptionTextBox");
+
+    ////add observers considering their id's
+    //var observerElem = new ObserverObj("LoanDescriptionTextBox");
+    //var observerElem2 = new ObserverObj("InstallmentValueTextBox");
+
+    ////add observers to observables
+    //ObservableUIElem.addObserver(observerElem);
+    //ObservableUIElem2.addObserver(observerElem2);
+    ////attatch focusout
+    //ObservableUIElem.AttatchFocusOut();
+    //ObservableUIElem2.AttatchFocusOut();
 }
 
+
+
 ////////////////////////////////
-//Observer class declaration//
+///Observer class declaration///
 ////////////////////////////////
 class ObserverClass {
 
@@ -51,9 +71,9 @@ class ObserverClass {
     }).bind(this)
 }
 
-////////////////////////////////
+//////////////////////////////////////////
 //LoanInstallmentClass class declaration//
-////////////////////////////////
+//////////////////////////////////////////
 class LoanInstallmentClass extends ObserverClass{
     loanAmount = 0;
     loanInterestRate = 0;
@@ -80,6 +100,9 @@ class LoanInstallmentClass extends ObserverClass{
     }).bind(this)
 }
 
+/////////////////////////////////////////////
+//LoanInstallmentSumClass class declaration//
+/////////////////////////////////////////////
 class LoanInstallmentSumClass extends ObserverClass {
     loanInstallment = 0;
     loanDuration = 0;
@@ -137,23 +160,6 @@ function CalculateLoanInstallment(loanAmount = 1, loanInterestRate = 1, duration
 
 $(document).ready(function () {           
 
-    ////using prototype
-    ////observer pattern setup
-    ////add observables considering their id's
-    //var ObservableUIElem = new ObservableObj("CustomerNameTextBox");
-    //var ObservableUIElem2 = new ObservableObj("LoanDescriptionTextBox");
-
-    ////add observers considering their id's
-    //var observerElem = new ObserverObj("LoanDescriptionTextBox");
-    //var observerElem2 = new ObserverObj("InstallmentValueTextBox");
-
-    ////add observers to observables
-    //ObservableUIElem.addObserver(observerElem);
-    //ObservableUIElem2.addObserver(observerElem2);
-    ////attatch focusout
-    //ObservableUIElem.AttatchFocusOut();
-    //ObservableUIElem2.AttatchFocusOut();
-
     //using classes
     //observer pattern setup
     //add observables considering their id's
@@ -181,11 +187,5 @@ $(document).ready(function () {
     ObservableUIinterestRate.AttatchFocusOut();
     ObservableUIloanDuration.AttatchFocusOut();
     ObservableUIloanInstallment.AttatchOnChange();
-
-
-    //legacy attach
-    //$("#CustomerNameTextBox").focusout(function (elm) {
-    //    var textBoxText = $("#CustomerNameTextBox").val();
-    //    $("#LoanDescriptionTextBox").val(textBoxText+"'s loan");
-    //});
+   
 });
