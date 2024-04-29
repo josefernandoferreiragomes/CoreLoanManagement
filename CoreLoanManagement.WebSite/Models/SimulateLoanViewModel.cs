@@ -17,7 +17,11 @@ namespace CoreLoanManagement.WebSite.Models
         [DisplayName("Loan Installment")]
         public decimal LoanInstallment { get; set; }
         
-        [DisplayName("Loan Duration")]
+        [DisplayName("Loan Duration (months)")]
         public decimal LoanDuration { get; set; }
+
+        [DisplayName("Loan Installment sum")]
+        public decimal LoanInstallmentSum { get; set; }
+
     }
 }

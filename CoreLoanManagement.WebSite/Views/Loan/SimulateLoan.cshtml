@@ -34,9 +34,13 @@
 
     <div class="mb-3">
         @Html.LabelFor(m => m.LoanInstallment, new { @id = "LoanInstallmentLabel", @class = "form-label" })
-        @Html.TextBoxFor(m => m.LoanInstallment, new { @id = "LoanInstallmentTextBox", @class = "form-control" })
+        @Html.TextBoxFor(m => m.LoanInstallment, new { @id = "LoanInstallmentTextBox", @class = "form-control", @disabled = "disabled" })
     </div>
- 
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.LoanInstallmentSum, new { @id = "LoanInstallmentSumLabel", @class = "form-label" })
+        @Html.TextBoxFor(m => m.LoanInstallmentSum, new { @id = "LoanInstallmentSumTextBox", @class = "form-control", @disabled = "disabled" })
+    </div>
 
 }
 

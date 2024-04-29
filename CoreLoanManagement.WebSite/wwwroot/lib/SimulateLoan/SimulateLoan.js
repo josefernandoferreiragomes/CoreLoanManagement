@@ -59,21 +59,47 @@ class LoanInstallmentClass extends ObserverClass{
     loanInterestRate = 0;
     loanDuration = 0;
     constructor(elemId) {        
-        super(elemId);
-        this.loanDuration = 3;
+        super(elemId);       
     }
     notify = (function (elemVal, elemId) {
 
+        // notification / update logic
         if (String(elemId).includes("LoanAmount")) { this.loanAmount = elemVal; }
         else if (String(elemId).includes("LoanInterestRate")) { this.loanInterestRate = elemVal; }        
         else if (String(elemId).includes("LoanDuration")) { this.loanDuration = elemVal; }        
 
-        if (this.loanAmount > 0 && this.LoanInterestRate > 0 && this.loanDuration > 0) {
+        if (this.loanAmount > 0 && this.loanInterestRate > 0 && this.loanDuration > 0) {
 
             var loanInstallment = CalculateLoanInstallment(this.loanAmount, this.loanInterestRate, this.loanDuration);
             $("#" + this.elementId).val(loanInstallment);
 
         }
+
+        $("#" + this.elementId).trigger('change');
+
+    }).bind(this)
+}
+
+class LoanInstallmentSumClass extends ObserverClass {
+    loanInstallment = 0;
+    loanDuration = 0;
+
+    constructor(elemId) {
+        super(elemId);
+    }
+    notify = (function (elemVal, elemId) {
+
+        // notification / update logic
+        if (String(elemId).includes("LoanInstallment")) { this.loanInstallment = elemVal; }
+        else if (String(elemId).includes("LoanDuration")) { this.loanDuration = elemVal; }   
+
+        if (this.loanInstallment > 0 && this.loanDuration > 0) {
+
+            var loanInstallmentSum = this.loanInstallment * this.loanDuration;
+            $("#" + this.elementId).val(loanInstallmentSum);
+
+        }
+
 
     }).bind(this)
 }
@@ -98,10 +124,15 @@ class ObservableClass{
     AttatchFocusOut = (function () {
         $("#" + this.elementId).focusout(this.notifyObservers);
     }).bind(this)
+    AttatchOnChange = (function () {
+        $("#" + this.elementId).change(this.notifyObservers);
+    }).bind(this)
 }
 
-function CalculateLoanInstallment(loanAmount=1, loanInterestRate=1, duration = 1) {
-    return (Number(loanAmount) * (Number(duration) + (Number(loanInterestRate) / Number(100)))) / Number(12);
+function CalculateLoanInstallment(loanAmount = 1, loanInterestRate = 1, durationMonths = 1) {
+    var loanInterestRateFloat = loanInterestRate / 100;
+    var loanInstallment = (((loanInterestRateFloat / 12) * loanAmount) / (1 - (Math.pow(1 + (loanInterestRateFloat / 12), ((durationMonths / 12) * -12))))).toFixed(2);
+    return loanInstallment;
 }
 
 $(document).ready(function () {           
@@ -126,20 +157,31 @@ $(document).ready(function () {
     //using classes
     //observer pattern setup
     //add observables considering their id's
-    var ObservableUIElem = new ObservableClass("LoanAmountTextBox");
-    var ObservableUIElem2 = new ObservableClass("LoanInterestRateTextBox");
+    var ObservableUIloanAmount = new ObservableClass("LoanAmountTextBox");
+    var ObservableUIinterestRate = new ObservableClass("LoanInterestRateTextBox");
+    var ObservableUIloanDuration = new ObservableClass("LoanDurationTextBox");
+    var ObservableUIloanInstallment = new ObservableClass("LoanInstallmentTextBox");
     //TODO remaining fields
 
     //add observers considering their id's
-    var observerElem = new LoanInstallmentClass("LoanInstallmentTextBox");
+    var observerLoanInstallment = new LoanInstallmentClass("LoanInstallmentTextBox");
+    var observerLoanInstallmentSum = new LoanInstallmentSumClass("LoanInstallmentSumTextBox");
     //TODO remaining fields
 
     //add observers to observables
-    ObservableUIElem.addObserver(observerElem);
-    ObservableUIElem2.addObserver(observerElem);
+    ObservableUIloanAmount.addObserver(observerLoanInstallment);
+    ObservableUIinterestRate.addObserver(observerLoanInstallment);
+    ObservableUIloanDuration.addObserver(observerLoanInstallment);
+
+    ObservableUIloanDuration.addObserver(observerLoanInstallmentSum);
+    ObservableUIloanInstallment.addObserver(observerLoanInstallmentSum);
+
     //attatch focusout
-    ObservableUIElem.AttatchFocusOut();
-    ObservableUIElem2.AttatchFocusOut();
+    ObservableUIloanAmount.AttatchFocusOut();
+    ObservableUIinterestRate.AttatchFocusOut();
+    ObservableUIloanDuration.AttatchFocusOut();
+    ObservableUIloanInstallment.AttatchOnChange();
+
 
     //legacy attach
     //$("#CustomerNameTextBox").focusout(function (elm) {
