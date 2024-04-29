@@ -23,7 +23,7 @@ namespace LoanManagement.WebSite.Controllers
         {
             return View();
         }
-        public ActionResult AddLoanInstallment()
+        public ActionResult StringAppendExample()
         {
             return View();
         }

@@ -1,0 +1,53 @@
+﻿@model CoreLoanManagement.WebSite.Models.StringAppendExampleModel
+@{
+    ViewBag.Title = "String append example";
+}
+
+<div class="jumbotron">
+    <h1>String append example</h1>    
+    <h4>This page demonstrates the observable pattern, with a simple string append example, cascading through all form fields, as they are filled</h4>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Add loan installment</h2>
+    </div>
+</div>
+
+@using (Html.BeginForm("", ""))
+{
+<div class="input-group mb-3">
+    <div class="input-group">
+        <div class="col-2">
+            @Html.LabelFor(m => m.FirstString, new { @id = "FirstStringLabel", @class = "form-label" })
+        </div>
+        <div class="col-3">
+            @Html.TextBoxFor(m => m.FirstString, new { @id = "FirstStringTextBox", @class = "form-control" })
+        </div>
+    </div>
+    <p></p>
+    <div class="input-group">
+        <div class="col-2">
+            @Html.LabelFor(m => m.SecondString, new { @id = "SecondStringLabel", @class = "form-label" })
+        </div>
+        <div class="col-3">
+            @Html.TextBoxFor(m => m.SecondString, new { @id = "SecondStringTextBox", @class = "form-control" })
+        </div>
+    </div>
+    <div class="input-group">
+        <div class="col-2">
+            @Html.LabelFor(m => m.ThirdString, new { @id = "ThirdStringLabel", @class = "form-label" })
+        </div>
+        <div class="col-3">
+            @Html.TextBoxFor(m => m.ThirdString, new { @id = "ThirdStringTextBox", @class = "form-control" })
+        </div>
+    </div>
+</div>
+
+}
+
+@section Scripts
+    {
+    <script src="~/lib/StringAppendExample/StringAppendExample.js"></script>    
+
+}

@@ -1,3 +1,5 @@
+Original .NET Framework application references
+
 Initial Configuration:
 	Populate database
 			LoanManagement.DB.Dao.LoanManagementDBContext LoanManagement.DB.Tests->LoanManagementTest.cs->TestDbContextDbSeed

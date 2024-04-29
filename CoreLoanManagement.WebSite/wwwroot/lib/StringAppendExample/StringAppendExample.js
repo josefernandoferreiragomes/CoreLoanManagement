@@ -79,12 +79,12 @@ $(document).ready(function () {
     ////using prototype
     ////observer pattern setup
     ////add observables considering their id's
-    //var ObservableUIElem = new ObservableObj("CustomerNameTextBox");
-    //var ObservableUIElem2 = new ObservableObj("LoanDescriptionTextBox");
+    //var ObservableUIElem = new ObservableObj("FirstStringTextBox");
+    //var ObservableUIElem2 = new ObservableObj("SecondStringTextBox");
 
     ////add observers considering their id's
-    //var observerElem = new ObserverObj("LoanDescriptionTextBox");
-    //var observerElem2 = new ObserverObj("InstallmentValueTextBox");
+    //var observerElem = new ObserverObj("SecondStringTextBox");
+    //var observerElem2 = new ObserverObj("ThirdStringTextBox");
 
     ////add observers to observables
     //ObservableUIElem.addObserver(observerElem);
@@ -96,12 +96,12 @@ $(document).ready(function () {
     //using classes
     //observer pattern setup
     //add observables considering their id's
-    var ObservableUIElem = new ObservableClass("CustomerNameTextBox");
-    var ObservableUIElem2 = new ObservableClass("LoanDescriptionTextBox");
+    var ObservableUIElem = new ObservableClass("FirstStringTextBox");
+    var ObservableUIElem2 = new ObservableClass("SecondStringTextBox");
 
     //add observers considering their id's
-    var observerElem = new ObserverClass("LoanDescriptionTextBox");
-    var observerElem2 = new ObserverClass("InstallmentValueTextBox");
+    var observerElem = new ObserverClass("SecondStringTextBox");
+    var observerElem2 = new ObserverClass("ThirdStringTextBox");
 
     //add observers to observables
     ObservableUIElem.addObserver(observerElem);
@@ -111,8 +111,8 @@ $(document).ready(function () {
     ObservableUIElem2.AttatchFocusOut();
 
     //legacy attach
-    //$("#CustomerNameTextBox").focusout(function (elm) {
-    //    var textBoxText = $("#CustomerNameTextBox").val();
-    //    $("#LoanDescriptionTextBox").val(textBoxText+"'s loan");
+    //$("#FirstStringTextBox").focusout(function (elm) {
+    //    var textBoxText = $("#FirstStringTextBox").val();
+    //    $("#SecondStringTextBox").val(textBoxText+"'s loan");
     //});
 });
