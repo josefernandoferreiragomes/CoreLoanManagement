@@ -37,7 +37,7 @@ https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/
       PM > Install-Package Microsoft.EntityFrameworkCore.SqlServer
 
 ### Deploy to IIS
-[Steps taken to deploy to IIS](https://github.com/josefernandoferreiragomes/CoreLoanManagement/blob/master/DeployToIIS.md)
+	Read file DeployToIIS.md
 
 # Documentation of original solution, for reference...
 	
