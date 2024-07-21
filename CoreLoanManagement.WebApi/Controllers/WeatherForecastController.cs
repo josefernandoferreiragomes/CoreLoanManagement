@@ -1,12 +1,9 @@
+using CoreLoanManagement.WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreLoanManagement.WebApi.Controllers
 {
-    //[ApiController]
-    //[Route("[controller]")]
-    //[Route("api/[controller]")]
-    //[Route("api/WeatherForecast")]
-    //[ApiController]
+  
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase

@@ -7,18 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <OpenApiReference Include="OpenAPIs\swagger.json" CodeGenerator="NSwagCSharp" Namespace="CoreLoanManagement.WebSite.ClientApi" ClassName="Management">
+    <None Include="OpenAPIs\swagger.json" ClassName="Management" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <OpenApiReference Include="OpenAPIs\swagger1.json" CodeGenerator="NSwagCSharp" Namespace="CoreLoanManagement.WebSite.ClientApi" ClassName="Management">
       <SourceUri>http://localhost:5054/swagger/v1/swagger.json</SourceUri>
     </OpenApiReference>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="8.0.1">
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="8.0.7">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="NSwag.ApiDescription.Client" Version="14.0.2">
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="14.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

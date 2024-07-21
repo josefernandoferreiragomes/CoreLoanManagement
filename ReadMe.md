@@ -1,14 +1,17 @@
 # Observer Pattern Examples
-	Simulate Loan functionality
-	example 1: Using amount, interest rate, and duration input text boxes as observables, and installment text box as observer
-	example 2: Using duration and installment text boxes as observables, and installment sum as observer
+Simulate Loan functionality
 
-	view:
-	\CoreLoanManagement\CoreLoanManagement.WebSite\Views\Loan\SimulateLoan.cshtml
-	js:	
-	\CoreLoanManagement\CoreLoanManagement.WebSite\wwwroot\lib\SimulateLoan\SimulateLoan.js
+example 1: Using amount, interest rate, and duration input text boxes as observables, and installment text box as observer
 
-	... other featues being documented
+example 2: Using duration and installment text boxes as observables, and installment sum as observer
+
+view:
+\CoreLoanManagement\CoreLoanManagement.WebSite\Views\Loan\SimulateLoan.cshtml
+
+js:	
+\CoreLoanManagement\CoreLoanManagement.WebSite\wwwroot\lib\SimulateLoan\SimulateLoan.js
+
+... other featues being documented
 
 # Upgrade Loan Management exercise app to .Net Core
 
@@ -32,13 +35,22 @@ The various entities, initially with separate api's and url's, have been merged 
 ### Add custom script folders/files on the wwwroot/lib folder
 And correct paths for custom scripts files
 
+### API URL
+According to launchSettings.json
+http://localhost:5054/swagger/v1/swagger.json
+
 ### EF Core
 https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/
-      PM > Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+PM > Install-Package Microsoft.EntityFrameworkCore.SqlServer
 
 ### Deploy to IIS
-	Read file DeployToIIS.md
+Read file DeployToIIS.md
 
-# Documentation of original solution, for reference...
-	
-	https://github.com/josefernandoferreiragomes/LoanManagement
+# Additional sources
+
+## Documentation of original solution, for reference...
+https://github.com/josefernandoferreiragomes/LoanManagement
+
+## EntityFramework Core Connection Strings:
+https://learn.microsoft.com/en-us/ef/core/miscellaneous/connection-strings

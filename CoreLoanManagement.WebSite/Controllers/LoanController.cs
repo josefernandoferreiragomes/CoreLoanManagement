@@ -13,8 +13,7 @@ namespace LoanManagement.WebSite.Controllers
             _logger = logger;
             _loanRepository = loanRepository;
         }
-
-        // GET: Loan
+       
         public ActionResult SimulateLoan()
         {
             return View();

@@ -85,7 +85,7 @@ namespace LoanManagement.DB.Repositories
             return query.ToList();
         }
 
-        public List<Customer> GetPageOfClassGeneric(int page, int pageSize, string nameFilter)
+        public List<Customer> GetPageOfClassGeneric(int page, int pageSize, string? nameFilter)
         {
             List<Customer> customersOut = new List<Customer>();
             
@@ -107,7 +107,7 @@ namespace LoanManagement.DB.Repositories
 
                 var query = context.Customers
                         .OrderBy(on => on.CustomerName)
-                        .Where(c => c.CustomerName.Contains(nameFilter))
+                        //.Where(c => string.IsNullOrEmpty(nameFilter) || c.CustomerName.Contains(nameFilter))
                         .Skip((page - 1) * pageSize)
                         .Take(pageSize);
                 try

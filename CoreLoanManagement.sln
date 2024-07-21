@@ -19,14 +19,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		IISapppoolCore.png = IISapppoolCore.png
 		IISinstallationWindowsFeatures.png = IISinstallationWindowsFeatures.png
 		NextThemes.txt = NextThemes.txt
-		ReadMe.md = ReadMe.md
 		PublishScript.ps1 = PublishScript.ps1
+		ReadMe.md = ReadMe.md
 		References.txt = References.txt
 		SomeQueries.txt = SomeQueries.txt
 		UpgradeToCoreLog.txt = UpgradeToCoreLog.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreLoanManagement.WebSite", "CoreLoanManagement.WebSite\CoreLoanManagement.WebSite.csproj", "{8C15964A-D8F1-4E9E-B777-6D445A6988EF}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CoreLoanManagement.Database", "CoreLoanManagementDatabase\CoreLoanManagement.Database.sqlproj", "{72CC4F57-E769-4BE5-8042-1E6C5BA5D68D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +60,12 @@ Global
 		{8C15964A-D8F1-4E9E-B777-6D445A6988EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C15964A-D8F1-4E9E-B777-6D445A6988EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C15964A-D8F1-4E9E-B777-6D445A6988EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CC4F57-E769-4BE5-8042-1E6C5BA5D68D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CC4F57-E769-4BE5-8042-1E6C5BA5D68D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CC4F57-E769-4BE5-8042-1E6C5BA5D68D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{72CC4F57-E769-4BE5-8042-1E6C5BA5D68D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CC4F57-E769-4BE5-8042-1E6C5BA5D68D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CC4F57-E769-4BE5-8042-1E6C5BA5D68D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

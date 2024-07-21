@@ -10,9 +10,7 @@ using System.Data;
 namespace LoanManagement.DB.DaoSqlExecuters
 {
     public class LoanManagementDBExecuter
-    {
-        //private IConfigurationRoot _configuration;
-        //private const string ConfigKeyName= "";
+    {        
         DbContextOptions<LoanManagementDBContext> _options;
         private String SqlconString;
 
@@ -23,9 +21,7 @@ namespace LoanManagement.DB.DaoSqlExecuters
 
         public LoanManagementDBExecuter(DbContextOptions<LoanManagementDBContext> options)
         {
-            _options=options;
-            //_configuration = new Configuration();
-            //SqlconString = _configuration.GetConnectionString(ConfigKeyName);
+            _options=options;     
         }
         public LoanManagementDBExecuter(DbContextOptions<LoanManagementDBContext> options, string connectionString)
         {
@@ -35,7 +31,7 @@ namespace LoanManagement.DB.DaoSqlExecuters
         SqlConnection sqlCon = null;
 
         //https://learn.microsoft.com/en-us/ef/core/miscellaneous/connection-strings
-        //String SqlconString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LoanManagementDB;Encrypt=False;Integrated Security=true";
+        
         public CustomerLoanInstallmentDBOut CustomerInstallmentGetPage(CustomerLoaInstallmentDBIn objIn)
         {
             CustomerLoanInstallmentDBOut ObjDbOut =new CustomerLoanInstallmentDBOut();

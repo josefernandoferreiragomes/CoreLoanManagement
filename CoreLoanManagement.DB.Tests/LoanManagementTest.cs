@@ -66,27 +66,45 @@ namespace LoanManagement.DB.Tests
                 context.SaveChanges();
             }
         }
+
         [Test]
-        public void TestDbContext()
+        public void Given_CustomersDatabase_When_NewCustomerIsAdded_Then_ListOfAllCustomersReturneAllIncludingNew()
         {
             using (var context = new LoanManagementDBContext(_options))
             {
+                #region Arrange
                 // Create and save a new Customer
                 var name = "Paul";
+                int customerCountBefore;
+                int customerCountAfter;
+                #endregion
+
+                #region Act
+                var initialQuery = from b in context.Customers.ToList<Customer>()
+                            select b;
+
+                customerCountBefore = initialQuery.Count();
 
                 var customer = new Customer { CustomerName = name };
                 context.Customers.Add(customer);
                 context.SaveChanges();
 
-                //// Display all customers from the database
-                var query = from b in context.Customers.ToList<Customer>()
+                
+                var finalQuery = from b in context.Customers.ToList<Customer>()
                             select b;
+                customerCountAfter = finalQuery.Count();
+                #endregion
+                #region Assert
+                Assert.That(customerCountBefore + 1 == customerCountAfter);
 
+                //// Display all customers from the database to the test console
                 Console.WriteLine("All customers in the database:");
-                foreach (var item in query)
+                foreach (var item in finalQuery)
                 {
                     Console.WriteLine(item.CustomerName);
                 }
+
+                #endregion
             }
         }
 

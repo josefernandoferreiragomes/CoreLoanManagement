@@ -1,6 +1,5 @@
-﻿using LoanManagement.Interfaces;
-using LoanManagement.Models;
-using LoanManagement.Web.Models;
+﻿using CoreLoanManagement.WebApi.Models;
+using LoanManagement.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LoanManagement.Controllers

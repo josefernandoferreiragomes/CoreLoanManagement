@@ -35,9 +35,8 @@ namespace LoanManagement.Controllers
             _options = new DbContextOptionsBuilder<LoanManagementDBContext>()
                 .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
                 .Options;
-            new DBLoanManagerRepository(_options, _configuration.GetConnectionString("DefaultConnection"));
-
-            //_LoanManagementRepository = loanManagementRepository;
+            //new DBLoanManagerRepository(_options, _configuration.GetConnectionString("DefaultConnection"));
+           
             db = new DBLoanManagerRepository(_options, _configuration.GetConnectionString("DefaultConnection"));
 
             _LoanManagementRepository = new LoanManagerRepository(db);

@@ -1,9 +1,9 @@
+using CoreLoanManagement.WebApi.Models;
 using LoanManagement.DB.Data;
 using LoanManagement.DB.Interfaces;
 using LoanManagement.DB.Repositories;
 using LoanManagement.Interfaces;
 using LoanManagement.Repositories;
-using LoanManagement.Web.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 //builder.WebHost.UseKestrel();

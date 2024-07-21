@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoanManagement.Web.Models
+namespace CoreLoanManagement.WebApi.Models
 {
 
     public class CustomerItem

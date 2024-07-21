@@ -1,10 +1,4 @@
-﻿using LoanManagement.DB.Data;
-using LoanManagement.Models;
-using LoanManagement.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using CoreLoanManagement.WebApi.Models;
 
 namespace LoanManagement.Interfaces
 {

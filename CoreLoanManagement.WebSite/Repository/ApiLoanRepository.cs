@@ -17,7 +17,7 @@ namespace CoreLoanManagement.WebSite.Repository
 
             try
             {
-                response = (List<ClientApi.CustomerItem>)await client.GetCustomerItemAsync(null, null, null, null, null, null, "j");
+                response = (List<ClientApi.CustomerItem>)await client.GetCustomerItemAsync(null, null, null, null, null, null, "");
             }
             catch (ClientApi.ApiException ex)
             {

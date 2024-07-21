@@ -9,14 +9,7 @@ namespace CoreLoanManagement.WebApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
-          //  services.AddDbContext<LoanManagementDBContext>(o =>
-          //o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-          //  services.AddMvc();
-
-          //  _configuration = builder.Build();
-          //  _options = new DbContextOptionsBuilder<LoanManagementDBContext>()
-          //      .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
-          //      .Options;
+      
         }
     }
 }
