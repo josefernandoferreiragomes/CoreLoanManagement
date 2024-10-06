@@ -9,11 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LoanManagement.Controllers
 {
-    //[ApiController]
-    //[Route("[loanInstallment]")]
-    //[Route("api/[controller]")]
-    [ApiController]
-    //[Route("api/LoanInstallment")]
+    
+    [ApiController]    
     [Route("[controller]")]
     public class LoanInstallmentController : ControllerBase
     {
@@ -34,14 +31,14 @@ namespace LoanManagement.Controllers
             _configuration = builder.Build();
             _options = new DbContextOptionsBuilder<LoanManagementDBContext>()
                 .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))
-                .Options;
-            //new DBLoanManagerRepository(_options, _configuration.GetConnectionString("DefaultConnection"));
+                .Options;            
            
             db = new DBLoanManagerRepository(_options, _configuration.GetConnectionString("DefaultConnection"));
 
             _LoanManagementRepository = new LoanManagerRepository(db);
 
         }
+        
         // GET api/values
         [HttpGet(Name = "PostLoanInstallment")]
         public IEnumerable<LoanManagement.DB.Data.CustomerLoanInstallmentDBOutItem> Get(int customerId, int pageSize, int lastId)

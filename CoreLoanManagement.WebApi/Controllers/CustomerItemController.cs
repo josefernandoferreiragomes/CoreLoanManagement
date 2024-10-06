@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LoanManagement.Controllers
 {
-    //[ApiController]
-    //[Route("[customerItem]")]
-    //[Route("api/[controller]")]
+    
     [ApiController]
     [Route("[controller]")]
     public class CustomerItemController : ControllerBase, ICustomerItemController

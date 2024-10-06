@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreLoanManagement.Platform", "CoreLoanManagement.Platform\CoreLoanManagement.Platform.csproj", "{964F1970-771E-49E8-ADAD-D5BE82D7C510}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreLoanManagement.Utilities", "CoreLoanManagement.Utilities\CoreLoanManagement.Utilities.csproj", "{964F1970-771E-49E8-ADAD-D5BE82D7C510}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreLoanManagement.DB", "CoreLoanManagement.DB\CoreLoanManagement.DB.csproj", "{E80A7E2D-F4BE-4E26-802F-52C07798F09E}"
 EndProject

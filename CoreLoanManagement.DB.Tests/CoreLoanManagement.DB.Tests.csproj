@@ -26,7 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CoreLoanManagement.DB\CoreLoanManagement.DB.csproj" />
-    <ProjectReference Include="..\CoreLoanManagement.Platform\CoreLoanManagement.Platform.csproj" />
+    <ProjectReference Include="..\CoreLoanManagement.Utilities\CoreLoanManagement.Utilities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
